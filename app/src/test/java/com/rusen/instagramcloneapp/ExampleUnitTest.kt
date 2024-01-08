@@ -1,4 +1,4 @@
-package com.rusen.instakotlinapp
+package com.rusen.instagramcloneapp
 
 import org.junit.Test
 

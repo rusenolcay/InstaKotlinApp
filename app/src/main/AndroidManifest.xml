@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.InstaKotlinApp"
+        android:theme="@style/Theme.InstagramCloneApp"
         tools:targetApi="31">
         <activity
-            android:name="com.rusen.instakotlinapp.MainActivity"
+            android:name="com.rusen.instagramcloneapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

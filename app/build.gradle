@@ -5,14 +5,15 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
 
+
 }
 
 android {
-    namespace 'com.rusen.instaKotlinApp'
+    namespace 'com.rusen.instagramcloneapp'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.rusen.instaKotlinApp"
+        applicationId "com.rusen.instagramcloneapp"
         minSdk 24
         targetSdk 34
         versionCode 1
