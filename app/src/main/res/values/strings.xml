@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InstagramCloneApp</string>
+    <string name="by_rusen_narinc">Rusen Narinc</string>
+    <string name="from">From</string>
 </resources>
