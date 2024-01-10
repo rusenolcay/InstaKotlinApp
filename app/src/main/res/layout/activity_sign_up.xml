@@ -85,7 +85,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_Register"
+        android:id="@+id/btn_SignUp"
         style="@style/Widget.Material3.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="55dp"
@@ -105,7 +105,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_Register" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_SignUp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
