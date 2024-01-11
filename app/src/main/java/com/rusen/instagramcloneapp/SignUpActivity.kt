@@ -1,6 +1,8 @@
 package com.rusen.instagramcloneapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Html
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -21,23 +23,25 @@ class SignUpActivity : AppCompatActivity() {
     }
     lateinit var user: User
 
-    private val launcher= registerForActivityResult(ActivityResultContracts.GetContent()){
-        uri ->
+    private val launcher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {
-            uploadImage(uri, USER_PROFILE_FOLDER){
-                if (it==null){
+            uploadImage(uri, USER_PROFILE_FOLDER) {
+                if (it == null) {
 
-                }else{
-                    user.image=it
+                } else {
+                    user.image = it
                     binding.profileImage.setImageURI(uri)
                 }
             }
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val text = "<font color=#FF000000>Already have an Account</font> <font color=#1E88E5>Login ?</font>"
+        binding.tvLogin.setText(Html.fromHtml(text))
         user = User()
         binding.btnSignUp.setOnClickListener {
             if (binding.tvName.editText?.text.toString().equals("") or
@@ -63,8 +67,13 @@ class SignUpActivity : AppCompatActivity() {
                             Firebase.firestore.collection(USER_NODE)
                                 .document(Firebase.auth.currentUser!!.uid).set(user)
                                 .addOnSuccessListener {
-                                    Toast.makeText(this@SignUpActivity, "Login", Toast.LENGTH_SHORT)
-                                        .show()
+                                    startActivity(
+                                        Intent(
+                                            this@SignUpActivity,
+                                            HomeActivity::class.java
+                                        )
+                                    )
+                                    finish()
                                 }
                         }
                     } else {
@@ -80,6 +89,15 @@ class SignUpActivity : AppCompatActivity() {
         }
         binding.addImage.setOnClickListener {
             launcher.launch("image/*")
+        }
+        binding.tvLogin.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@SignUpActivity,
+                    LoginActivity::class.java
+                )
+            )
+            finish()
         }
     }
 }
