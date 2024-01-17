@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.google.firebase.auth.FirebaseAuth
 import com.rusen.instagramcloneapp.common.viewBinding
 import com.rusen.instagramcloneapp.databinding.ActivityMainBinding
 
@@ -20,8 +21,13 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, SignUpActivity::class.java))
-            finish()
+            if(FirebaseAuth.getInstance().currentUser== null){
+                startActivity(Intent(this, SignUpActivity::class.java))
+            } else{
+                startActivity(Intent(this, HomeActivity::class.java))
+
+                finish()
+            }
         }, 3000)
     }
 }
