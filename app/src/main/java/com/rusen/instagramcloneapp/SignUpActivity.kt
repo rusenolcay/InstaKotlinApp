@@ -49,7 +49,7 @@ class SignUpActivity : AppCompatActivity() {
         user = User()
         if (intent.hasExtra("MODE")){
             if (intent.getIntExtra("MODE", -1)==1){
-                binding.btnSignUp.text ="Update Profile"
+                binding.btnSignUp.text = getString(R.string.update_profile)
 
                 com.google.firebase.Firebase.firestore.collection(USER_NODE).document(com.google.firebase.Firebase.auth.currentUser!!.uid).get()
                     .addOnSuccessListener {

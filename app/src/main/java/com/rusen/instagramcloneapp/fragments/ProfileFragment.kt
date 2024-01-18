@@ -11,7 +11,6 @@ import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 import com.rusen.instagramcloneapp.Models.User
-import com.rusen.instagramcloneapp.R
 import com.rusen.instagramcloneapp.SignUpActivity
 import com.rusen.instagramcloneapp.databinding.FragmentProfileBinding
 import com.rusen.instagramcloneapp.utils.USER_NODE
@@ -24,7 +23,7 @@ class ProfileFragment : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View{
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         binding.btnEditProfile.setOnClickListener {

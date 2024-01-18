@@ -21,4 +21,7 @@
     <string name="reels">Reels</string>
     <string name="user">User</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="update_profile">Update Profile</string>
+    <string name="name_profil">name</string>
+    <string name="bio_profil">bio</string>
 </resources>
