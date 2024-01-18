@@ -22,7 +22,7 @@
         android:title="@string/reels" />
 
     <item
-        android:id="@+id/user_one"
+        android:id="@+id/profile"
         android:icon="@drawable/user_one"
         android:title="@string/user" />
 
