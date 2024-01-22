@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.rusen.instagramcloneapp.R
-class AddFragment : Fragment() {
+import com.rusen.instagramcloneapp.databinding.FragmentAddBinding
+
+class AddFragment : BottomSheetDialogFragment() {
+    private lateinit var binding: FragmentAddBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -16,7 +20,7 @@ class AddFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add, container, false)
+       binding=FragmentAddBinding.inflate(inflater,container,false)
+        return binding.root
     }
 }

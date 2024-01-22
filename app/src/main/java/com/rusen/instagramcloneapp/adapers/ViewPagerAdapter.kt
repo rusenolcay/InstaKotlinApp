@@ -3,8 +3,6 @@ package com.rusen.instagramcloneapp.adapers
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager2.adapter.FragmentViewHolder
-import com.rusen.instagramcloneapp.databinding.FragmentProfileBinding
 
 class ViewPagerAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm,
     BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
