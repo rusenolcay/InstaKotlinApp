@@ -24,4 +24,6 @@
     <string name="update_profile">Update Profile</string>
     <string name="name_profil">name</string>
     <string name="bio_profil">bio</string>
+    <string name="add_post">Add Post</string>
+    <string name="add_reel">Add Reel</string>
 </resources>
