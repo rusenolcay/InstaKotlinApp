@@ -12,6 +12,7 @@ import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
 import com.rusen.instagramcloneapp.Models.User
 import com.rusen.instagramcloneapp.SignUpActivity
+import com.rusen.instagramcloneapp.adapers.ViewPagerAdapter
 import com.rusen.instagramcloneapp.databinding.FragmentProfileBinding
 import com.rusen.instagramcloneapp.utils.USER_NODE
 import com.squareup.picasso.Picasso
@@ -19,6 +20,7 @@ import com.squareup.picasso.Picasso
 class ProfileFragment : Fragment(){
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +34,15 @@ class ProfileFragment : Fragment(){
             activity?.startActivity(intent)
             activity?.finish()
         }
+        viewPagerAdapter= ViewPagerAdapter(requireActivity().supportFragmentManager)
+        viewPagerAdapter.addFragments(MyPostFragment(),"My Post")
+        viewPagerAdapter.addFragments(MyReelFragment(),"My Reels")
+        binding.viewPager.adapter= viewPagerAdapter
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+
+
+
+
         return binding.root
     }
 

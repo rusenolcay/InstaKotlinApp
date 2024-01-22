@@ -56,6 +56,10 @@ class SignUpActivity : AppCompatActivity() {
                         user= it.toObject<User>()!!
                         if (!user.image.isNullOrEmpty()) {
                             Picasso.get().load(user.image).into(binding.profileImage)
+                            binding.tvName.editText?.setText(user.name)
+                            binding.tvEmail.editText?.setText(user.email)
+                            binding.tvPassword.editText?.setText(user.password)
+
                         }
                     }
             }
