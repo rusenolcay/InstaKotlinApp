@@ -15,3 +15,15 @@ fun uploadImage(uri: Uri, folderName: String, callback:(String?)-> Unit) {
             }
         }
 }
+
+fun uploadVideo(uri: Uri, folderName: String, callback:(String?)-> Unit) {
+    var videoUrl: String?
+    FirebaseStorage.getInstance().getReference(folderName).child(UUID.randomUUID().toString())
+        .putFile(uri)
+        .addOnSuccessListener {
+            it.storage.downloadUrl.addOnSuccessListener {
+                videoUrl = it.toString()
+                callback(videoUrl)
+            }
+        }
+}
