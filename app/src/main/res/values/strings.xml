@@ -31,4 +31,6 @@
     <string name="your_post_may_be_appear_in_posts_and_can_be_seen_on_the_posts_tab_under_your_profile">Your Post May be appear in Posts and can be seen on the posts tab under your profile</string>
     <string name="post">Post</string>
     <string name="cancel">Cancel</string>
+    <string name="select_reel">Select Reel</string>
+    <string name="share_to_reel">Share to Reel</string>
 </resources>
