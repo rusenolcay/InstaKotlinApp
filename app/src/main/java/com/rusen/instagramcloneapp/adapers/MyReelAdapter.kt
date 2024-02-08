@@ -6,12 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.rusen.instagramcloneapp.Models.Post
 import com.rusen.instagramcloneapp.Models.Reel
 import com.rusen.instagramcloneapp.databinding.MyPostRvDesingBinding
-import com.squareup.picasso.Picasso
 
- class MyReelAdapter(var context: Context, var reelList: ArrayList<Reel>) :
+class MyReelAdapter(var context: Context, var reelList: ArrayList<Reel>) :
         RecyclerView.Adapter<MyReelAdapter.ViewHolder>() {
         inner class ViewHolder(var binding: MyPostRvDesingBinding) :
             RecyclerView.ViewHolder(binding.root)

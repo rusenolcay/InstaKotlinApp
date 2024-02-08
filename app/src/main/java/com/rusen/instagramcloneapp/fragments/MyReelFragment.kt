@@ -10,10 +10,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.google.firebase.firestore.toObject
-import com.rusen.instagramcloneapp.Models.Post
 import com.rusen.instagramcloneapp.Models.Reel
-import com.rusen.instagramcloneapp.R
-import com.rusen.instagramcloneapp.adapers.MyPostRvAdapter
 import com.rusen.instagramcloneapp.adapers.MyReelAdapter
 import com.rusen.instagramcloneapp.databinding.FragmentMyReelBinding
 import com.rusen.instagramcloneapp.utils.REEL
