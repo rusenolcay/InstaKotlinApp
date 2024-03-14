@@ -8,12 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
+import com.google.firebase.firestore.toObject
 import com.rusen.instagramcloneapp.HomeActivity
 import com.rusen.instagramcloneapp.Models.Reel
+import com.rusen.instagramcloneapp.Models.User
 import com.rusen.instagramcloneapp.databinding.ActivityReelsBinding
 import com.rusen.instagramcloneapp.utils.POST
 import com.rusen.instagramcloneapp.utils.REEL
 import com.rusen.instagramcloneapp.utils.REEL_FOLDER
+import com.rusen.instagramcloneapp.utils.USER_NODE
 import com.rusen.instagramcloneapp.utils.uploadVideo
 
 class ReelsActivity : AppCompatActivity() {
@@ -45,16 +48,22 @@ class ReelsActivity : AppCompatActivity() {
             finish()
         }
         binding.postButton.setOnClickListener {
-            val reel: Reel = Reel(videoUrl!!, binding.tvCaption.editText?.text.toString())
+            Firebase.firestore.collection(USER_NODE).document(Firebase.auth.currentUser!!.uid).get()
+                .addOnSuccessListener {
+                    var user: User = it.toObject<User>()!!
+                    val reel: Reel =
+                        Reel(videoUrl!!, binding.tvCaption.editText?.text.toString(), user.image!!)
 
-            Firebase.firestore.collection(POST).document().set(reel).addOnSuccessListener {
-                Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL).document()
-                    .set(reel).addOnSuccessListener {
-                    startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
-                    finish()
+                    Firebase.firestore.collection(POST).document().set(reel).addOnSuccessListener {
+                        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL)
+                            .document()
+                            .set(reel).addOnSuccessListener {
+                                startActivity(Intent(this@ReelsActivity, HomeActivity::class.java))
+                                finish()
+                            }
+
+                    }
                 }
-
-            }
         }
     }
 }

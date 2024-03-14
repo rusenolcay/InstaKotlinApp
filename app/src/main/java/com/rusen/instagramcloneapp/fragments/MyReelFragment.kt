@@ -25,24 +25,26 @@ class MyReelFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentMyReelBinding.inflate(inflater, container, false)
-        var reelList = ArrayList<Reel>()
-        var adapter = MyReelAdapter(requireContext(),reelList)
-        binding.rvReel.layoutManager =
-            StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
-        binding.rvReel.adapter = adapter
 
-        Firebase.firestore.collection(Firebase.auth.currentUser!!.uid+ REEL).get().addOnSuccessListener {
-            var tempList = arrayListOf<Reel>()
-            for (i in it.documents) {
-                var reel: Reel = i.toObject<Reel>()!!
-                tempList.add(reel)
-            }
-            reelList.addAll(tempList)
-            adapter.notifyDataSetChanged()
+        with(binding) {
+            FragmentMyReelBinding.inflate(inflater, container, false)
+            var reelList = ArrayList<Reel>()
+            var adapter = MyReelAdapter(requireContext(), reelList)
+            rvReel.layoutManager =
+                StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
+            rvReel.adapter = adapter
+
+            Firebase.firestore.collection(Firebase.auth.currentUser!!.uid + REEL).get()
+                .addOnSuccessListener {
+                    var tempList = arrayListOf<Reel>()
+                    for (i in it.documents) {
+                        var reel: Reel = i.toObject<Reel>()!!
+                        tempList.add(reel)
+                    }
+                    reelList.addAll(tempList)
+                    adapter.notifyDataSetChanged()
+                }
+            return root
         }
-        return binding.root
     }
-
 }
