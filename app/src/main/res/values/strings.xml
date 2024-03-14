@@ -33,4 +33,5 @@
     <string name="cancel">Cancel</string>
     <string name="select_reel">Select Reel</string>
     <string name="share_to_reel">Share to Reel</string>
+    <string name="this_is_my_temp_data_for_video">this is my temp data for video</string>
 </resources>
